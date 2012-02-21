@@ -1,0 +1,424 @@
+models
+  admin
+    function deleteRelated($id)
+  booking
+    function numericOrNull($data)
+    function moreThanZeroNull($data)
+    function afterFind($results)
+  booking_limit
+    function save($data = null, $validate = true, $fieldList = array()) {
+  contact
+    function matchEmails($data)
+  student
+    function deleteRelated($id)
+  teacher
+    function numericOrNull($data)
+    function moreThanZeroNull($data)
+    function deleteRelated($id)
+  teacher_feedback
+    function rejectWithComment($id, $comment, $user)
+  ticket
+    function afterFind($results)
+  user
+    function matchPasswords($data)
+    function password_check($data)
+    function hashPasswords($data)
+    function customHashPasswords($data)
+    function beforeSave()
+controllers
+  admin_settings_controller
+    function beforeFilter()
+    function add_default()
+    #admin
+      function index()
+      function view($id = null)
+      function edit($id = null)
+    function import_timezones()
+  admins_controller
+    function beforeFilter()
+    function startup()
+    function index()
+    function add()
+    function view($id = null)
+    function edit($id = null)
+    function delete($id = null)
+    function change_password($id = null)
+    #admin
+      function index()
+      function feedback()
+      function feedback_dt()
+      function feedback_dt()
+      function list()
+      function list_dt()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function suspend($ids = null)
+      function disable($ids = null)
+      function enable($ids = null)
+      function delete($ids = null)
+      function mass_actions()
+      function change_password($id = null)
+      function booking_schedule()
+      function booking_day_totals()
+      function booking_timeslot_totals()
+  booking_limits_controller
+    #admin
+      function index()
+      function get($date = null)
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($id = null)
+      function limits_timeslot()
+  bookings_controller
+    #teachers
+      function index()
+      function index_upcoming_dt()
+    function _getStudentLevelDifference($booking)
+    #teachers
+      function email_admin()
+      function view($id = null)
+      function join($id = null)
+      function finish($id = null)
+      function feedback($id = null)
+    #students
+      function index()
+    function upcoming()
+    function upcoming_teachers()
+    function next()
+    function next_teacher()
+    #students
+      function join($id = null)
+    function _isValidLesson($id)
+    function _isEnrolled($lesson)
+    function _hasCompleted($lesson, &$message)
+    function _paymentOk(&$message)
+    function _assignSeat(&$message)
+    function _getListOfRecentAssignments($start_time)
+    function _getUnusedSeats($list)
+    function _getBestSeats($seats, $recent)
+    #students
+      function add($id = null)
+      function edit($id = null)
+    function available($date = null, $specific_slot = null)
+    #students
+      function view($id = null)
+      function cancel($id = null)
+      function confirm_cancel($id = null)
+      function finish($id = null)
+      function feedback($id = null)
+      function index_past_dt()
+      function index_upcoming_dt()
+    #admin
+      function index()
+      function index_upcoming_dt()
+      function index_current_dt()
+      function index_past_dt()
+      function index_unassigned_dt()
+      function view($id = null)
+      function view_student_dt($id = null)
+      function view_teacher_dt($id = null)
+      function join($id = null)
+      function add()
+      function edit($id = null)
+      function delete($ids = null)
+      function mass_actions()
+  bugs_controller
+    function index()
+    function view($id = null)
+    function add()
+    function delete($id = null)
+    #admin
+      function index()
+      function index_dt()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($ids = null)
+    function _getExtension($path)
+    function _uploadFiles($files, &$data)
+    #admin
+      function mass_actions()
+  business_hours_controller
+    function index() {
+    function view($id = null) {
+    function add() {
+    function edit($id = null) {
+    function delete($id = null) {
+  comments_controller
+    #teachers
+      function delete($id = null)
+    #admins
+      function admins_delete($id = null)
+    #students
+      function delete($id = null)
+    function _delete($id)
+  companies_controller
+    #admin
+      function index()
+      function index_dt()
+      function view($id = null)
+      function view_dt($id = null)
+      function add()
+      function edit($id = null)
+      function delete($ids = null)
+      function import($id = null)
+      function mass_actions()
+  completions_controller
+    function get()
+    #admin
+      function index()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($id = null, $redirect = null)
+  courses_controller
+    function beforeFilter()
+    #teachers
+      function index()
+      function view($id = null)
+    #students
+      function index()
+    function progress()
+    #students
+      function view($id = null)
+      function book_next($id)
+    #admin
+      function index()
+      function index_dt()
+      function view($id = null)
+      function view_lessons_dt($id = null)
+      function add()
+      function edit($id = null)
+      function delete($ids = null)
+      function mass_actions()
+  daily_schedules_controller
+    #admin
+      function index()
+    #teachers
+      function index()
+    #admin
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($id = null)
+  enrollments_no_controller
+    function get()
+    #admin
+      function index()
+      function index_dt()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($ids = null)
+      function mass_actions()
+  groups_controller
+    function beforeFilter()
+    function add_groups()
+    #admin
+      function index()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($id = null)
+  lessons_controller
+    function beforeFilter()
+    #teachers
+      function index()
+      function view($id = null)
+      function unit($id = null)
+      function guide($id = null)
+      function comments($id = null)
+      function comments_dt($id)
+      function add_comment($id = null)
+    #students
+      function index()
+      function view($id = null)
+      function test($id = null)
+      function pdf($path = null)
+      function lesson_confirm($id = null)
+      function unit($id = null)
+      function comments($id = null)
+    #admin
+      function index()
+      function index_dt()
+      function view($id = null)
+      function view_bookings_dt($id = null)
+      function view_questions_dt($id = null)
+      function view_completions_dt($id = null)
+      function preview($id = null)
+      function unit($id = null)
+      function add($course_id = null)
+    function _uploadFiles($files, &$data) // TODO
+    function _getExtension($path)
+    #admin
+      function edit($id = null)
+      function delete($ids = null)
+      function mass_actions()
+  materials_controller
+    #admin
+      function index()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($id = null)
+  notifi_controller
+    function beforeFilter()
+    function auth()
+    function finishLesson($id = null)
+    function _isCurrentBooking($booking)
+    function post()
+  p28n_controller
+        function change($lang = null) {
+        function shuntRequest() {
+  pages_controller
+    function beforeFilter()
+    function display()
+    function contact()
+  payments_controller
+    #admin
+      function index()
+      function index_dt()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($ids = null)
+      function mass_actions()
+  profiles_controller
+    #teachers
+      function index()
+    function get_teachers()
+    #teachers
+      function view($id = null)
+      function edit($id = null)
+    function get()
+    #admin
+      function index()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($id = null)
+  questions_controller
+    #admin
+      function index()
+      function view($id = null)
+      function add($id = null)
+      function edit($id = null)
+      function delete($id = null)
+  sitemaps_controller
+        function sitemap()
+  student_feedback_controller
+    #students
+      function add($id = null)
+    #admin
+      function index()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($ids = null)
+      function mass_actions()
+  students_controller
+    function beforeFilter()
+    function add()
+    function confirm()
+    function welcome($hash = null)
+    #teachers
+      function view($id = null)
+      function view_comments_dt($id)
+      function add_comment($id = null)
+    #students
+      function index()
+      function edit()
+      function view()
+      function test()
+      function change_password()
+    #admin
+      function index()
+      function index_dt()
+      function view($id = null)
+      function view_bookings_dt($id = null)
+      function view_completions_dt($id = null)
+      function add()
+      function edit($id = null)
+      function change_password($id = null)
+      function suspend($ids = null, $rd = null)
+      function delete($ids = null, $rd = null)
+      function enable($ids = null, $rd = null)
+      function disable($ids = null, $rd = null)
+      function mass_actions($rd = null)
+  teacher_feedback_controller
+    #teachers
+      function index()
+    function get_teachers()
+    #teachers
+      function view($id = null)
+      function view_comments_dt($id)
+      function add($id = null)
+      function edit($id = null)
+    #students
+      function index()
+    function get()
+    #admin
+      function index()
+      function view($id = null)
+      function view_comments_dt($id)
+      function add()
+      function edit($id = null)
+      function delete($ids = null)
+      function approve($id = null)
+      function reject($id = null)
+      function mass_actions()
+  teachers_controller
+    function beforeFilter()
+    #teachers
+      function index()
+      function edit()
+      function view()
+      function change_password()
+      function schedule()
+      function login()
+      function logout()
+    #admin
+      function index()
+      function index_dt()
+      function view($id = null)
+      function view_bookings_dt($id = null)
+      function view_feedback_given_dt($id = null)
+      function view_feedback_received_dt($id = null)
+      function add()
+      function edit($id = null)
+      function change_password($id = null)
+      function suspend($ids = null)
+      function disable($ids = null)
+      function enable($ids = null)
+      function delete($ids = null)
+      function mass_actions()
+  tickets_controller
+    #admin
+      function index()
+      function index_dt()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($ids = null)
+      function mass_actions()
+  users_controller
+    function beforeFilter()
+    function login()
+    function logout()
+    function forgot()
+    function reset($hash = null)
+    #admin
+      function index()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($id = null)
+  weekly_schedules_controller
+    #admin
+      function index()
+      function view($id = null)
+      function add()
+      function edit($id = null)
+      function delete($id = null)
